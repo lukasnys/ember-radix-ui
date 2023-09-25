@@ -1,16 +1,5 @@
 {{page-title "AccordionTestApp"}}
 
-<h2 class="text-xl" id="title">Welcome to Ember</h2>
-
-<Accordion as |A|>
-  <A.Item class="bg-sky-100 p-5" @value="item-1" as |I|>
-    <I.Header class="bg-slate-300" as |H|>
-      <H.Trigger class="bg-slate-500 m-4">
-        Header 1
-      </H.Trigger>
-    </I.Header>
-    <I.Content class="bg-slate-900 text-slate-100" />
-  </A.Item>
-</Accordion>
+<AccordionSingle />
 
 {{outlet}}
