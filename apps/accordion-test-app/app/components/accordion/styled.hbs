@@ -1,0 +1,31 @@
+<article>
+  <h2 class="text-3xl font-bold">Accordion styled</h2>
+
+  <Accordion
+    @type="single"
+    @defaultValue="item-2"
+    class="w-80 drop-shadow-md text-slate-900 mx-auto"
+    as |A|
+  >
+    <A.Item @value="item-1" class="bg-white rounded-t-xl" as |I|>
+      <I.Header as |H|>
+        <H.Trigger class="py-2 px-4 w-full text-start font-semibold">
+          Header 1
+        </H.Trigger>
+      </I.Header>
+      <I.Content class="bg-slate-100 p-2 px-4">
+        Content 1
+      </I.Content>
+    </A.Item>
+    <A.Item @value="item-2" class="bg-white rounded-b-xl" as |I|>
+      <I.Header as |H|>
+        <H.Trigger class="py-2 px-4 w-full text-start font-semibold">
+          Header 2
+        </H.Trigger>
+      </I.Header>
+      <I.Content class="bg-slate-100 rounded-b-xl p-2 px-4">
+        Content 2
+      </I.Content>
+    </A.Item>
+  </Accordion>
+</article>
