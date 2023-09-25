@@ -2,4 +2,23 @@
 
 <h2 id="title">Welcome to Ember</h2>
 
+<Accordion as |A|>
+  <A.Item @value="item-1">
+    <:header>
+      Item 1
+    </:header>
+    <:panel>
+      Panel 1
+    </:panel>
+  </A.Item>
+  <A.Item @value="item-2">
+    <:header>
+      Item 2
+    </:header>
+    <:panel>
+      Panel 2
+    </:panel>
+  </A.Item>
+</Accordion>
+
 {{outlet}}
