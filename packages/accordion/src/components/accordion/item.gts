@@ -36,19 +36,11 @@ export default class AccordionItem extends Component<AccordionItemArgs> {
             toggle=this.toggle
             disabled=this.disabled
           )
-        )
-        to='header'
-      }}
-      {{#if this.isExpanded}}
-        {{yield
-          (hash
-            Content=(component
-              Content value=this.args.value isExpanded=this.isExpanded
-            )
+          Content=(component
+            Content value=this.args.value isExpanded=this.isExpanded
           )
-          to='content'
-        }}
-      {{/if}}
+        )
+      }}
     </div>
   </template>
 }
