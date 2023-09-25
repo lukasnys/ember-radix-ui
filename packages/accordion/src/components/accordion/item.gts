@@ -1,6 +1,9 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { on } from '@ember/modifier';
+import { hash } from '@ember/helper';
+
+import Header from '@ember-radix-ui/accordion/components/accordion/header';
+import Content from '@ember-radix-ui/accordion/components/accordion/content';
 
 export interface AccordionItemArgs {
   value: string;
@@ -23,22 +26,29 @@ export default class AccordionItem extends Component<AccordionItemArgs> {
   };
 
   <template>
-    <div role='heading' aria-level='3'>
-      <button
-        role='button'
-        disabled={{this.disabled}}
-        aria-controls='{{@value}}'
-        aria-disabled={{this.disabled}}
-        aria-expanded={{this.isExpanded}}
-        {{on 'click' this.toggle}}
-      >
-        {{yield to='header'}}
-      </button>
+    <div ...attributes>
+      {{yield
+        (hash
+          Header=(component
+            Header
+            value=this.args.value
+            isExpanded=this.isExpanded
+            toggle=this.toggle
+            disabled=this.disabled
+          )
+        )
+        to='header'
+      }}
+      {{#if this.isExpanded}}
+        {{yield
+          (hash
+            Content=(component
+              Content value=this.args.value isExpanded=this.isExpanded
+            )
+          )
+          to='content'
+        }}
+      {{/if}}
     </div>
-    {{#if this.isExpanded}}
-      <div role='region' id='{{@value}}'>
-        {{yield to='panel'}}
-      </div>
-    {{/if}}
   </template>
 }

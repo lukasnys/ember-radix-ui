@@ -1,23 +1,19 @@
 {{page-title "AccordionTestApp"}}
 
-<h2 id="title">Welcome to Ember</h2>
+<h2 class="text-xl" id="title">Welcome to Ember</h2>
 
 <Accordion as |A|>
-  <A.Item @value="item-1">
-    <:header>
-      Item 1
+  <A.Item class="bg-sky-100 p-5" @value="item-1">
+    <:header as |H|>
+      <H.Header class="bg-slate-300" as |T|>
+        <T.Trigger class="bg-slate-500 m-4">
+          Header 1
+        </T.Trigger>
+      </H.Header>
     </:header>
-    <:panel>
-      Panel 1
-    </:panel>
-  </A.Item>
-  <A.Item @value="item-2">
-    <:header>
-      Item 2
-    </:header>
-    <:panel>
-      Panel 2
-    </:panel>
+    <:content as |C|>
+      <C.Content class="bg-slate-900 text-slate-100" />
+    </:content>
   </A.Item>
 </Accordion>
 
