@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { hash } from '@ember/helper';
 
 import Header from '@ember-radix-ui/accordion/components/accordion/header';
@@ -7,14 +6,21 @@ import Content from '@ember-radix-ui/accordion/components/accordion/content';
 
 export interface AccordionItemArgs {
   value: string;
+  selectedValue?: string | string[];
   disabled?: boolean;
 }
 
 export default class AccordionItem extends Component<AccordionItemArgs> {
-  @tracked isExpanded = false;
-
   get disabled(): boolean {
     return this.args.disabled ?? false;
+  }
+
+  get isExpanded(): boolean {
+    if (Array.isArray(this.args.selectedValue)) {
+      return this.args.selectedValue.includes(this.args.value);
+    }
+
+    return this.args.selectedValue === this.args.value;
   }
 
   toggle = () => {
@@ -22,7 +28,7 @@ export default class AccordionItem extends Component<AccordionItemArgs> {
       return;
     }
 
-    this.isExpanded = !this.isExpanded;
+    this.args.toggleItem(this.args.value);
   };
 
   <template>
