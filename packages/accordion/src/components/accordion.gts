@@ -23,15 +23,15 @@ interface AccordionSignature {
 }
 
 export default class Accordion extends Component<AccordionSignature> {
-  @tracked internalValue: string | string[];
+  @tracked internalValue: string | string[] = this.args.defaultValue;
 
   get selectedValue() {
-    return this.args.value ?? this.internalValue ?? this.args.defaultValue;
+    return this.args.value ?? this.internalValue;
   }
-
   toggleItem = (value) => {
     if (this.args.type === 'single') {
-      this.internalValue = value;
+      this.internalValue = this.internalValue === value ? null : value;
+
       this.args.onValueChange?.(value);
     } else {
       const values = this.selectedValue as string[];
