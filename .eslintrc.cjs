@@ -2,13 +2,9 @@
 
 module.exports = {
   root: true,
-  parser: '@babel/eslint-parser',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
-    babelOptions: {
-      root: __dirname,
-    },
   },
   plugins: ['ember'],
   extends: [
@@ -21,6 +17,17 @@ module.exports = {
   },
   rules: {},
   overrides: [
+    // ts files
+    {
+      files: ['**/*.ts', '**/*.gts'],
+      extends: [
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+      ],
+      rules: {
+        // Add any custom rules here
+      },
+    },
     // node files
     {
       files: [
