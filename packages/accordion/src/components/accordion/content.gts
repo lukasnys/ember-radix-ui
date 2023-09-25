@@ -1,5 +1,7 @@
 <template>
-  <div role='region' id='{{@value}}' ...attributes>
-    content
-  </div>
+  {{#if @isExpanded}}
+    <div role='region' id='{{@value}}' ...attributes>
+      {{yield}}
+    </div>
+  {{/if}}
 </template>
