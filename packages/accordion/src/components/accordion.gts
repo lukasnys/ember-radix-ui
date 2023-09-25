@@ -28,6 +28,7 @@ export default class Accordion extends Component<AccordionSignature> {
   get selectedValue() {
     return this.args.value ?? this.internalValue;
   }
+
   toggleItem = (value) => {
     if (this.args.type === 'single') {
       this.internalValue = this.internalValue === value ? null : value;
