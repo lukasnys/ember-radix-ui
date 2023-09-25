@@ -1,0 +1,22 @@
+<Accordion @type="multiple" @defaultValue={{(array "item-2")}} as |A|>
+  <A.Item class="bg-sky-100 p-5" @value="item-1" as |I|>
+    <I.Header class="bg-slate-300" as |H|>
+      <H.Trigger class="bg-slate-500 m-4">
+        Header 1
+      </H.Trigger>
+    </I.Header>
+    <I.Content class="bg-slate-900 text-slate-100">
+      Content 1
+    </I.Content>
+  </A.Item>
+  <A.Item class="bg-sky-100 p-5" @value="item-2" as |I|>
+    <I.Header class="bg-slate-300" as |H|>
+      <H.Trigger class="bg-slate-500 m-4">
+        Header 2
+      </H.Trigger>
+    </I.Header>
+    <I.Content class="bg-slate-900 text-slate-100">
+      Content 2
+    </I.Content>
+  </A.Item>
+</Accordion>
