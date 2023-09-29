@@ -2,7 +2,7 @@ import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import { WithBoundArgs } from '@glint/template';
 
-import Trigger from './trigger';
+import Trigger from './trigger.gts';
 
 export const AccordionHeader: TOC<{
   Element: HTMLDivElement;

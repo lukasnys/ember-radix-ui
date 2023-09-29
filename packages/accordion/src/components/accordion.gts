@@ -4,7 +4,7 @@ import { WithBoundArgs } from '@glint/template';
 import { hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 
-import AccordionItem from './accordion/item';
+import AccordionItem from './accordion/item.gts';
 
 interface AccordionSingleArgs {
   type: 'single';

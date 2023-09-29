@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { WithBoundArgs } from '@glint/template';
 import { hash } from '@ember/helper';
 
-import Header from './header';
+import Header from './header.gts';
 import Content from './content.gts';
 
 export interface AccordionItemSignature {
