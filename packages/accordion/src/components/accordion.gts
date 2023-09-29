@@ -21,7 +21,7 @@ interface AccordionMultipleArgs {
 interface AccordionSignature {
   Element: HTMLDivElement;
   Blocks: {
-    default: [{ Item: AccordionItem }];
+    default: [{ Item: typeof AccordionItem }];
   };
   Args: AccordionSingleArgs | AccordionMultipleArgs;
 }
