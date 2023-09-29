@@ -2,15 +2,22 @@ import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 
 import Header from '@ember-radix-ui/accordion/components/accordion/header';
-import Content from '@ember-radix-ui/accordion/components/accordion/content';
+import Content from '@ember-radix-ui/accordion/components/accordion/content.gts';
 
-export interface AccordionItemArgs {
-  value: string;
-  selectedValue?: string | string[];
-  disabled?: boolean;
+export interface AccordionItemSignature {
+  Element: HTMLDivElement;
+  Blocks: {
+    default: [{ Header: Header; Content: Content }];
+  };
+  Args: {
+    value: string;
+    selectedValue?: string | string[];
+    disabled?: boolean;
+    toggleItem: (value: string) => void;
+  };
 }
 
-export default class AccordionItem extends Component<AccordionItemArgs> {
+export default class AccordionItem extends Component<AccordionItemSignature> {
   get disabled(): boolean {
     return this.args.disabled ?? false;
   }

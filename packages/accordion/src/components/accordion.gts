@@ -19,19 +19,23 @@ interface AccordionMultipleArgs {
 }
 
 interface AccordionSignature {
+  Element: HTMLDivElement;
+  Blocks: {
+    default: [{ Item: AccordionItem }];
+  };
   Args: AccordionSingleArgs | AccordionMultipleArgs;
 }
 
 export default class Accordion extends Component<AccordionSignature> {
-  @tracked internalValue: string | string[] = this.args.defaultValue;
+  @tracked internalValue?: string | string[] = this.args.defaultValue;
 
   get selectedValue() {
     return this.args.value ?? this.internalValue;
   }
 
-  toggleItem = (value) => {
+  toggleItem = (value: string) => {
     if (this.args.type === 'single') {
-      this.internalValue = this.internalValue === value ? null : value;
+      this.internalValue = this.internalValue === value ? undefined : value;
 
       this.args.onValueChange?.(value);
     } else {

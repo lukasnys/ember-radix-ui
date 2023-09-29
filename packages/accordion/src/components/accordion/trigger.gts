@@ -1,6 +1,18 @@
+import type { TOC } from '@ember/component/template-only';
 import { on } from '@ember/modifier';
 
-<template>
+export const AccordionTrigger: TOC<{
+  Element: HTMLButtonElement;
+  Blocks: {
+    default: [];
+  };
+  Args: {
+    isExpanded: boolean;
+    value: string;
+    disabled: boolean;
+    toggle: () => void;
+  };
+}> = <template>
   <button
     role='button'
     disabled={{@disabled}}
@@ -13,3 +25,5 @@ import { on } from '@ember/modifier';
     {{yield}}
   </button>
 </template>
+
+export default AccordionTrigger;

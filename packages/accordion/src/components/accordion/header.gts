@@ -1,8 +1,20 @@
+import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 
 import Trigger from '@ember-radix-ui/accordion/components/accordion/trigger';
 
-<template>
+export const AccordionHeader: TOC<{
+  Element: HTMLDivElement;
+  Blocks: {
+    default: [{ Trigger: typeof Trigger }];
+  };
+  Args: {
+    value: string;
+    isExpanded: boolean;
+    disabled: boolean;
+    toggle: () => void;
+  };
+}> = <template>
   <div role='heading' aria-level='3' ...attributes>
     {{yield
       (hash
@@ -17,3 +29,5 @@ import Trigger from '@ember-radix-ui/accordion/components/accordion/trigger';
     }}
   </div>
 </template>
+
+export default AccordionHeader;
