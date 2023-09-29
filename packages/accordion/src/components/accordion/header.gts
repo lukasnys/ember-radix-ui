@@ -1,12 +1,20 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
+import { WithBoundArgs } from '@glint/template';
 
 import Trigger from './trigger';
 
 export const AccordionHeader: TOC<{
   Element: HTMLDivElement;
   Blocks: {
-    default: [{ Trigger: typeof Trigger }];
+    default: [
+      {
+        Trigger: WithBoundArgs<
+          typeof Trigger,
+          'value' | 'isExpanded' | 'disabled' | 'toggle'
+        >;
+      },
+    ];
   };
   Args: {
     value: string;

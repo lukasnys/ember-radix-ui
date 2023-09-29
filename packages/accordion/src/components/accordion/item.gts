@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { WithBoundArgs } from '@glint/template';
 import { hash } from '@ember/helper';
 
 import Header from './header';
@@ -7,7 +8,15 @@ import Content from './content.gts';
 export interface AccordionItemSignature {
   Element: HTMLDivElement;
   Blocks: {
-    default: [{ Header: typeof Header; Content: typeof Content }];
+    default: [
+      {
+        Header: WithBoundArgs<
+          typeof Header,
+          'value' | 'isExpanded' | 'toggle' | 'disabled'
+        >;
+        Content: WithBoundArgs<typeof Content, 'value' | 'isExpanded'>;
+      },
+    ];
   };
   Args: {
     value: string;

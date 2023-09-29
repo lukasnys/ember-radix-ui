@@ -1,4 +1,6 @@
 import Component from '@glimmer/component';
+import { WithBoundArgs } from '@glint/template';
+
 import { hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 
@@ -21,7 +23,14 @@ interface AccordionMultipleArgs {
 interface AccordionSignature {
   Element: HTMLDivElement;
   Blocks: {
-    default: [{ Item: typeof AccordionItem }];
+    default: [
+      {
+        Item: WithBoundArgs<
+          typeof AccordionItem,
+          'selectedValue' | 'toggleItem'
+        >;
+      },
+    ];
   };
   Args: AccordionSingleArgs | AccordionMultipleArgs;
 }
@@ -61,7 +70,6 @@ export default class Accordion extends Component<AccordionSignature> {
         (hash
           Item=(component
             AccordionItem
-            type=@type
             selectedValue=this.selectedValue
             toggleItem=this.toggleItem
           )
