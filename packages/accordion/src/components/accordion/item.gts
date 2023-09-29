@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 
-import Header from '@ember-radix-ui/accordion/components/accordion/header';
-import Content from '@ember-radix-ui/accordion/components/accordion/content.gts';
+import Header from './header';
+import Content from './content.gts';
 
 export interface AccordionItemSignature {
   Element: HTMLDivElement;

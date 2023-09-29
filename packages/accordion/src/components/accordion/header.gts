@@ -1,7 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 
-import Trigger from '@ember-radix-ui/accordion/components/accordion/trigger';
+import Trigger from './trigger';
 
 export const AccordionHeader: TOC<{
   Element: HTMLDivElement;

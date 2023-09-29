@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 
-import AccordionItem from '@ember-radix-ui/accordion/components/accordion/item';
+import AccordionItem from './accordion/item';
 
 interface AccordionSingleArgs {
   type: 'single';
