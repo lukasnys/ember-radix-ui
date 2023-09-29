@@ -7,7 +7,7 @@ import Content from './content.gts';
 export interface AccordionItemSignature {
   Element: HTMLDivElement;
   Blocks: {
-    default: [{ Header: Header; Content: Content }];
+    default: [{ Header: typeof Header; Content: typeof Content }];
   };
   Args: {
     value: string;
