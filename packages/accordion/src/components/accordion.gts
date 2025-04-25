@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { WithBoundArgs } from '@glint/template';
+import type { WithBoundArgs } from '@glint/template';
 
 import { hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
